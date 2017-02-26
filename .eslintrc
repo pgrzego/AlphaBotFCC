@@ -1,0 +1,26 @@
+{
+  "extends": "standard",
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "script"
+  },
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+  "globals": {
+    "chai": false,
+    "expect": false,
+    "PORT": false,
+    "URL": false
+  },
+  "rules": {
+    "semi": [ 1, "always" ],
+    "strict": [2, "safe" ],
+    "space-before-function-paren": 0
+  }
+}

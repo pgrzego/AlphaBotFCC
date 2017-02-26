@@ -1,0 +1,38 @@
+{
+  "name": "slack-bot",
+  "version": "0.1.0",
+  "description": "commands for slack",
+  "main": "server/server.js",
+  "author": "Maxim Karabashev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgrzego/AlphaBotFCC"
+  },
+  "scripts": {
+    "lint": "eslint server",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && cross-env NODE_ENV=test nyc mocha ./test.config.js ./server/**/*.test.js --colors",
+    "dev": "nodemon ./server/server",
+    "start": "forever ./server/cluster.js"
+  },
+  "dependencies": {
+    "cross-env": "^3.1.4",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "forever": "^0.15.3",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.2",
+    "eslint-plugin-standard": "^2.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.1.2"
+  }
+}
