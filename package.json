@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "commands for slack",
   "main": "server/server.js",
-  "author": "Maxim Karabashev",
+  "author": "adamgit, maximk, osycon, piotr",
   "license": "MIT",
   "repository": {
     "type": "git",
