@@ -27,7 +27,7 @@ const isValidMsg = (type, content) =>
 // slack shows IM users somewhat differently (subtitle)
 const findUser = (subtitle, content) => {
   const maybeUser = content.match(/(^.*?): /);
-  return maybeUser && maybeUser[1] || subtitle;
+  return maybeUser ? maybeUser[1] : subtitle;
 };
 
 /**
@@ -46,9 +46,11 @@ bot.on('message', function(data) {
   ts: '1488720842.000011',
   team: 'T47G4GJUW' }*/
 
-  isValidMsg(data.type, data.content) && bot.postMessage(
-    data.channel,
-    `<@${findUser(data.subtitle, data.content)}> thank you for contacting me`,
-    params
-  );
+  if(isValidMsg(data.type, data.content)) {
+    bot.postMessage(
+      data.channel,
+      `<@${findUser(data.subtitle, data.content)}> thank you for contacting me`,
+      params
+    );
+  } 
 });
