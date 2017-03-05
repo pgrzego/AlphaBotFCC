@@ -14,7 +14,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && cross-env NODE_ENV=test nyc mocha ./test.config.js ./server/**/*.test.js --colors",
     "dev": "nodemon ./server/server",
-    "start": "forever ./server/cluster.js"
+    "start": "node -r dotenv/config server/app.js"
   },
   "dependencies": {
     "slackbots": "1.0.2",
