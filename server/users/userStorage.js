@@ -5,19 +5,24 @@ let userStorage = {};
 
 const newTimeout = (user, duration) => setTimeout(userTimedOut(user), duration);
 
-const userTimedOut = user => () => userStorage[user] = QAHasChanged(user);
+const userTimedOut = user => () => userStorage[user] = QAHasReset(user);
 
-const QAHasChanged = (user, userData = { progress: -1, timeout: null }) =>
-({ progress: userData.progress + 1, timeout: newTimeout(user, WAIT_PERIOD) });
+const QAHasChanged = (defaultProgress) =>
+  (user, userData = { progress: defaultProgress, timeout: null }) =>
+    ({ progress: userData.progress + 1, timeout: newTimeout(user, WAIT_PERIOD) });
+
+const newUserQA = QAHasChanged(0);
+const QAHasReset = QAHasChanged(-1);
+const QAHasProgressed = QAHasChanged();
 
 const userHasProgressed = (user, userData) => {
   clearTimeout(userData.timeout);
-  return QAHasChanged(user, userData);
+  return QAHasProgressed(user, userData);
 };
 
 exports.userSentAnswer = user =>
   userStorage[user] = userStorage[user]
     ? userHasProgressed(user, userStorage[user])
-    : QAHasChanged(user, { progress: 0, timeout: null });
+    : newUserQA(user);
 
 exports.getUserData = user => userStorage[user].progress;
