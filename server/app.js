@@ -1,11 +1,12 @@
-'use strict'
+'use strict';
+const { userSentAnswer, getUserData } = require('./users/userStorage');
 
 var SlackBot = require('slackbots');
 
 var bot = new SlackBot({
   token: process.env.SLACK_TOKEN,
   name: process.env.SLACK_NAME
-})
+});
 
 
 var params = {
@@ -15,7 +16,7 @@ var params = {
 
 bot.on('start', function() {
   //bot.postMessageToChannel(process.env.SLACK_CHANNEL_NAME, 'meow!', params);
-})
+});
 
 /**
  * helper fns
@@ -37,7 +38,7 @@ const findUser = (subtitle, content) => {
 bot.on('message', function(data) {
     // all ingoing events https://api.slack.com/rtm
     console.log(data);
-    console.log('*'.repeat(40))
+    console.log('*'.repeat(40));
 
   /*{ type: 'message',
   channel: 'D4D542SQY',
@@ -47,10 +48,14 @@ bot.on('message', function(data) {
   team: 'T47G4GJUW' }*/
 
   if(isValidMsg(data.type, data.content)) {
+    const user = findUser(data.subtitle, data.content);
+    userSentAnswer(user);
+    const progress = getUserData(user);
+
     bot.postMessage(
       data.channel,
-      `<@${findUser(data.subtitle, data.content)}> thank you for contacting me`,
+      `<@${user}> you have contacted me in the past half a minute. This is ${progress === 1 ? 'one time' : progress + ' times'} in a row so far.`,
       params
     );
-  } 
+  }
 });

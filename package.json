@@ -13,7 +13,7 @@
     "lint": "eslint server",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && cross-env NODE_ENV=test nyc mocha ./test.config.js ./server/**/*.test.js --colors",
-    "dev": "nodemon ./server/server",
+    "dev": "nodemon -r dotenv/config ./server/app.js",
     "start": "node -r dotenv/config server/app.js"
   },
   "dependencies": {
