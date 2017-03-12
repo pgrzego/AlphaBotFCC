@@ -1,4 +1,5 @@
 {
+  "questions": "Are you well?",
   "positive":	["yes", "ye", "yeah", "ya", "si", "ja", "da", "great", "awesome", "super", "lovely", "well", "fantastic", "fabulous", "yea", "good", "fine", "okay", "all right", "yep", "very well", "absolutely"],
   "negative": ["no", "nope", "never", "not", "non", "nah", "naa", "na", "nay", "nix", "not at all", "absolutely not"]
 }
