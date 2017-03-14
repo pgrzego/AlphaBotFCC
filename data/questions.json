@@ -1,5 +1,66 @@
 {
-  "questions": "Are you well?",
+  "questions": {
+    "level1": [
+      {
+        "level": 1,
+        "question": "this is the first level 1 question?",
+        "followUpYes": "this.questions.level2[1]",
+        "followUpNo": "this.questions.level1[1]"
+      },
+      {
+        "level": 1,
+        "question": "this is the second level 1 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
+      },
+      {
+        "level": 1,
+        "question": "this is third level 1 question?",
+        "followUpYes": "this.questions.level2[0]",
+        "followUpNo": "this.questions.level1[0]"
+      }
+    ],
+    "level2": [
+      {
+        "level": 2,
+        "question": "this is the first level 2 question?",
+        "followUpYes": "this.questions.level2[1]",
+        "followUpNo": "this.questions.level1[1]"
+      },
+      {
+        "level": 2,
+        "question": "this is the second level 2 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
+      },
+      {
+        "level": 2,
+        "question": "this is third level 2 question?",
+        "followUpYes": "this.questions.level2[0]",
+        "followUpNo": "this.questions.level1[0]"
+      }
+    ],
+    "level3": [
+      {
+        "level": 3,
+        "question": "this is the first level 3 question?",
+        "followUpYes": "this.questions.level2[1]",
+        "followUpNo": "this.questions.level1[1]"
+      },
+      {
+        "level": 3,
+        "question": "this is the second level 3 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
+      },
+      {
+        "level": 3,
+        "question": "this is the third level 3 question?",
+        "followUpYes": "this.questions.level2[0]",
+        "followUpNo": "this.questions.level1[0]"
+      }
+    ]
+  },
   "positive":	["yes", "ye", "yeah", "ya", "si", "ja", "da", "great", "awesome", "super", "lovely", "well", "fantastic", "fabulous", "yea", "good", "fine", "okay", "all right", "yep", "very well", "absolutely"],
   "negative": ["no", "nope", "never", "not", "non", "nah", "naa", "na", "nay", "nix", "not at all", "absolutely not"]
 }
