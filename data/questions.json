@@ -3,29 +3,57 @@
     "level1": [
       {
         "level": 1,
-        "question": "this is the first level 1 question?",
-        "followUpYes": "this.questions.level2[1]",
+        "question": "Do you like chicken?",
+        "followUpYes": "this.questions.level2[0]",
         "followUpNo": "this.questions.level1[1]"
       },
       {
         "level": 1,
-        "question": "this is the second level 1 question?",
-        "followUpYes": "this.questions.level2[2]",
+        "question": "Do you like beef?",
+        "followUpYes": "this.questions.level2[1]",
         "followUpNo": "this.questions.level1[2]"
       },
       {
         "level": 1,
-        "question": "this is third level 1 question?",
-        "followUpYes": "this.questions.level2[0]",
+        "question": "Do you like pork?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[3]"
+      },
+      {
+        "level": 1,
+        "question": "Do you like vegetarian?",
+        "followUpYes": "this.questions.level2[3]",
+        "followUpNo": "this.questions.level1[4]"
+      },
+      {
+        "level": 1,
+        "question": "Do you like fish?",
+        "followUpYes": "this.questions.level2[4]",
         "followUpNo": "this.questions.level1[0]"
       }
     ],
     "level2": [
       {
         "level": 2,
-        "question": "this is the first level 2 question?",
-        "followUpYes": "this.questions.level2[1]",
-        "followUpNo": "this.questions.level1[1]"
+        "question": "Do you like curry?",
+        "followUpYes": {
+          "curry": [
+            { "dishname": "Present a curry dish", "recipegif": ""}            
+            ]
+        },
+        "followUpNo": "this.questions.level3[0]"
+      },
+      {
+        "level": 2,
+        "question": "this is the second level 2 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
+      },
+      {
+        "level": 2,
+        "question": "this is the second level 2 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
       },
       {
         "level": 2,
@@ -43,9 +71,29 @@
     "level3": [
       {
         "level": 3,
-        "question": "this is the first level 3 question?",
-        "followUpYes": "this.questions.level2[1]",
-        "followUpNo": "this.questions.level1[1]"
+        "question": "Do you like grilled chicken?",
+        "followUpYes": {
+          "grilled chicken": [
+            { "dishname": "Present a grilled chicken dish", "recipegif": ""}
+            ]
+        },
+        "followUpNo": {
+          "chicken soup": [
+            { "dishname": "Present a chicken soup", "recipegif": ""}
+            ]
+        }
+      },
+      {
+        "level": 3,
+        "question": "this is the second level 3 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
+      },
+      {
+        "level": 3,
+        "question": "this is the second level 3 question?",
+        "followUpYes": "this.questions.level2[2]",
+        "followUpNo": "this.questions.level1[2]"
       },
       {
         "level": 3,
@@ -64,3 +112,81 @@
   "positive":	["yes", "ye", "yeah", "ya", "si", "ja", "da", "great", "awesome", "super", "lovely", "well", "fantastic", "fabulous", "yea", "good", "fine", "okay", "all right", "yep", "very well", "absolutely"],
   "negative": ["no", "nope", "never", "not", "non", "nah", "naa", "na", "nay", "nix", "not at all", "absolutely not"]
 }
+
+// Do you like chicken?
+
+//     Yes: Do you like curry?
+
+//         Yes: Present a curry.
+
+//         No: Do you like grilled chicken?
+
+//             Yes: Give chicken grilled dish.
+
+//             No: Present chicken soup.
+
+//     No: go to beef
+
+   
+
+// Do you like beef?
+
+//     Yes: Do you like stew?
+
+//         Yes: Present a beef stew?
+
+//         No: Do you like ground beef?
+
+//             Yes: Present a ground beef meal.
+
+//             No: Then present a steak meal.
+
+//     No: Go to Pork.
+
+   
+
+// Do you like Pork?
+
+//     Yes: Do you like bacon?
+
+//         Yes: Suggest a bacon recipe
+
+//         No: do you like sausages?
+
+//             Yes: Suggest a pork sausage recipe.
+
+//             No: Suggest Pork Tenderloin.
+
+//     No: Go to Veg.
+
+   
+
+// Do you like vegetarian?
+
+//     Yes: Do you like pasta?
+
+//         Yes: Suggest a pasta sallad
+
+//         No: Do you like indian food?
+
+//             Yes: Suggest an indian veg dish.
+
+//             No: suggest a quick and easy veg dish
+
+//     No: Go to Fish.
+
+   
+
+// Do you like fish?
+
+//     Yes: Do you like Salmon?
+
+//         Yes: Suggest a salmon dish.
+
+//         No: Do you like Tuna?
+
+//             Yes: Suggest a tuna recipe.
+
+//             no: Suggest a halibut recipe.
+
+//     No: Go to chicken.
