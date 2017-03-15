@@ -38,7 +38,9 @@
         "question": "Do you like curry?",
         "followUpYes": {
           "currys": [
-            { "dishname": "Present a curry dish", "recipegif": ""}            
+            { "dishname": "Butter Chicken Curry", "recipegif": "http://i.imgur.com/kDV66RD.gifv"},
+            { "dishname": "Awesome Almond Chicken Curry", "recipegif": "https://gfycat.com/JealousTalkativeAcouchi"},
+            { "dishname": "Devil's Curry", "recipegif": "http://i.imgur.com/6aVNRB3.gifv"}
             ]
         },
         "followUpNo": "this.questions.level3[0]"
