@@ -74,7 +74,9 @@
         "question": "Do you like pasta?",
         "followUpYes": {
           "vegpasta": [
-            { "dishname": "Roasted Vegetable Pasta", "recipegif": "https://thumbs.gfycat.com/SilkyShyBactrian-mobile.mp4"}
+            { "dishname": "Roasted Vegetable Pasta", "recipegif": "https://thumbs.gfycat.com/SilkyShyBactrian-mobile.mp4"},
+            { "dishname": "Pasta Avocado Alfredo", "recipegif": "https://fat.gfycat.com/BeautifulImaginaryDamselfly.webm"},
+            { "dishname": "Roasted Tomato and Basil Pasta", "recipegif": "https://gfycat.com/CircularExemplaryAsiandamselfly"}
             ]
         },
         "followUpNo": "this.questions.level3[3]"
@@ -95,30 +97,38 @@
     "level3": [
       {
         "level": 3,
-        "question": "Do you like grilled chicken?",
+        "question": "Do you like chicken soup?",
         "followUpYes": {
-          "grilled_chicken": [
-            { "dishname": "Present a grilled chicken dish", "recipegif": ""}
+          "chicken_soup": [
+            { "dishname": "Udon Soup with Chicken, Spinach and Mushrooms", "recipegif": "http://i.imgur.com/zZsJWC8.gifv"},
+            { "dishname": "Creamy Chicken Lasagna Soup", "recipegif": "http://i.imgur.com/W3rUwOu.gifv"},
+            { "dishname": "Chicken Soup in a Tortilla Bowl", "recipegif": "https://thumbs.gfycat.com/TenderFrighteningJenny-mobile.mp4"}
             ]
+          
         },
         "followUpNo": {
-          "chicken_soup": [
-            { "dishname": "Udon Soup with Chicken, Spinach and Mushrooms", "recipegif": "http://i.imgur.com/zZsJWC8.gifv"}
+          "other_chicken": [
+            { "dishname": "General Tso's Chicken", "recipegif": "http://i.imgur.com/sVrmkys.gifv"},
+            { "dishname": "Kung Pao Chicken", "recipegif": "http://i.imgur.com/3kC7fOV.gifv"},
+            { "dishname": "Honey BBQ Chicken Wings", "recipegif": "http://i.imgur.com/1u9RnRp.gifv"}
             ]
         }
       },
       {
         "level": 3,
-        "question": "Do you like ground beef?",
+        "question": "Do you like slow cooked beef?",
         "followUpYes": {
-          "ground_beef": [
-            { "dishname": "Present a ground beef dish", "recipegif": ""}
+          "slow_cooked_beef": [
+            { "dishname": "Slow Cooker Beef and Broccoli", "recipegif": "http://i.imgur.com/W32VWCf.gifv"},
+            { "dishname": "Slow Cooker Beef Stroganoff", "recipegif": "http://imgur.com/IJk0cOe.gifv"},
+            { "dishname": "Slow Cooker Mongolian Beef", "recipegif": "http://i.imgur.com/5o9z6rl.gifv"}
             ]
         },
         "followUpNo": {
           "steaks": [
             { "dishname": "Strip Steak with Lemon Yogurt and Radishes", "recipegif": "http://i.imgur.com/JYV6tde.gifv"},
-            { "dishname": "Present a steak dish", "recipegif": ""}
+            { "dishname": "Steak and Cheese Stromboli", "recipegif": "http://i.imgur.com/KYsUIUY.gifv"},
+            { "dishname": "Coffee Crusted Skirt Steak", "recipegif": "http://i.imgur.com/gVv4z2L.gifv"}
             ]
         }
       },
@@ -128,12 +138,15 @@
         "followUpYes": {
           "sausages": [
             { "dishname": "Sausage Pizza Muffins", "recipegif": "https://gfycat.com/EasyFortunateEuropeanpolecat"},
-            { "dishname": "Sausage Pizza Muffins", "recipegif": "https://gfycat.com/EasyFortunateEuropeanpolecat"}
+            { "dishname": "Sausage and Pepper Macaroni", "recipegif": "https://gfycat.com/FoolishRemoteEmperorpenguin"},
+            { "dishname": "Spicy Smoked Sausage Alfredo Bake", "recipegif": "http://i.imgur.com/d810r7O.gifv"}
             ]
         },
         "followUpNo": {
-          "porktenderloin": [
-            { "dishname": "Present a pork tenderloin dish", "recipegif": ""}
+          "other_pork": [
+            { "dishname": "Sweet & Sour Pork", "recipegif": "https://gfycat.com/WaterloggedShrillAfricanclawedfrog"},
+            { "dishname": "Chinese-Style Glazed Pork Belly", "recipegif": "https://gfycat.com/PaleSmoothKarakul"},
+            { "dishname": "Pork Ribs", "recipegif": "http://i.imgur.com/UVBRJbX.gifv"}
             ]
         }
       },
@@ -147,7 +160,9 @@
         },
         "followUpNo": {
           "quick_easy": [
-            { "dishname": "Present a quick and easy veg dish", "recipegif": ""}
+            { "dishname": "Tofu Stir Fry", "recipegif": "https://gfycat.com/ImmaculatePiercingCoot"},
+            { "dishname": "Rainbow Sushi", "recipegif": "https://gfycat.com/PlumpOrdinaryBlackandtancoonhound"},
+            { "dishname": "Thai Salad", "recipegif": "https://gfycat.com/NewMilkyKakapo"}
             ]
         }
       },
@@ -156,12 +171,16 @@
         "question": "Do you like tuna?",
         "followUpYes": {
           "tuna": [
-            { "dishname": "Present a tuna dish", "recipegif": ""}
+            { "dishname": "Healthy Tuna stuffed Zucchini Boats", "recipegif": "https://gfycat.com/SecondAdolescentAlaskanhusky"},
+            { "dishname": "Sriracha Tuna Melt", "recipegif": "http://i.imgur.com/yYFedBt.gif"},
+            { "dishname": "", "recipegif": ""}
             ]
         },
         "followUpNo": {
-          "halibut": [
-            { "dishname": "Present a halibut dish", "recipegif": ""}
+          "other_fish": [
+            { "dishname": "Healthy Fish Tacos", "recipegif": "https://gfycat.com/HardtofindVariableAquaticleech"},
+            { "dishname": "Pan-Fried Fish with Lemon Caper Sauce", "recipegif": "http://i.imgur.com/R7j0O3p.gifv"},
+            { "dishname": "Salt and Vinegar Chip Battered Fish", "recipegif": "http://i.imgur.com/Js10k3m.gif"}
             ]
         }
       }
