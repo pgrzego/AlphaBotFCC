@@ -1,5 +1,6 @@
 'use strict';
 const { userSentAnswer, getUserData } = require('./users/userStorage');
+const data = require('../data/questions.json');
 
 var SlackBot = require('slackbots');
 
