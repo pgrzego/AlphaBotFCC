@@ -63,7 +63,8 @@
         "followUpYes": {
           "bacon": [
             { "dishname": "One-Pot Bacon Mushroom Risotto", "recipegif": "https://gfycat.com/ElementaryYearlyHogget"},
-            { "dishname": "One-Pot Creamy Chicken Bacon Veggie Pasta", "recipegif": "https://gfycat.com/SeveralFabulousIlsamochadegu"}   
+            { "dishname": "One-Pot Creamy Chicken Bacon Veggie Pasta", "recipegif": "https://gfycat.com/SeveralFabulousIlsamochadegu"},
+            { "dishname": "Creamy Bacon Chive Hasselback Potatoes", "recipegif": "https://gfycat.com/NewHairyAzurewingedmagpie"}  
             ]
         },
         "followUpNo": "this.questions.level3[2]"
