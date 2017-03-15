@@ -152,15 +152,17 @@
       },
       {
         "level": 3,
-        "question": "Do you like Indian vegetarian food?",
+        "question": "Do you like tofu?",
         "followUpYes": {
-          "indian": [
-            { "dishname": "Present a indian veg dish", "recipegif": ""}
+          "tofu": [
+            { "dishname": "Tofu with Peanut Sauce", "recipegif": "https://gfycat.com/DefensiveWarpedKittiwake"},
+            { "dishname": "Tofu Stir Fry", "recipegif": "https://gfycat.com/ImmaculatePiercingCoot"},
+            { "dishname": "Crispy Hoisin Tofu Pancakes", "recipegif": "http://i.imgur.com/ZPlEobd.gifv"}
             ]
         },
         "followUpNo": {
-          "quick_easy": [
-            { "dishname": "Tofu Stir Fry", "recipegif": "https://gfycat.com/ImmaculatePiercingCoot"},
+          "other_veg": [
+            { "dishname": "Veggie Spinal Tart", "recipegif": "https://gfycat.com/HoarseGrandFirebelliedtoad"},
             { "dishname": "Rainbow Sushi", "recipegif": "https://gfycat.com/PlumpOrdinaryBlackandtancoonhound"},
             { "dishname": "Thai Salad", "recipegif": "https://gfycat.com/NewMilkyKakapo"}
             ]
