@@ -84,7 +84,9 @@
         "question": "Do you like salmon?",
         "followUpYes": {
           "salmon": [
-            { "dishname": "Present a salmon dish", "recipegif": ""}            
+            { "dishname": "Salmon and Rice with Miso", "recipegif": "https://gfycat.com/NarrowMadGodwit"},
+            { "dishname": "One-Pot Salmon Chowder", "recipegif": "http://i.imgur.com/DYkny5S.gifv"},
+            { "dishname": "Grilled Salmon with Avocado Salsa", "recipegif": "http://i.imgur.com/lzLbLKC.gifv"}
             ]
         },
         "followUpNo": "this.questions.level3[4]"
