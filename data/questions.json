@@ -45,10 +45,12 @@
       },
       {
         "level": 2,
-        "question": "Do you like stew?",
+        "question": "Do you like Burger?",
         "followUpYes": {
           "stews": [
-            { "dishname": "Present a stew dish", "recipegif": ""}            
+            { "dishname": "Creamy Chilli Cheese Burger", "recipegif": "https://gfycat.com/RespectfulImpeccableIndianelephant"},
+            { "dishname": "Animal Style Burger", "recipegif": "http://i.imgur.com/H87e9aW.gifv"},
+            { "dishname": "Hidden Veggie Burger", "recipegif": "https://gfycat.com/IckyDecimalEuropeanpolecat"}
             ]
         },
         "followUpNo": "this.questions.level3[1]"
@@ -58,7 +60,8 @@
         "question": "Do you like bacon?",
         "followUpYes": {
           "bacon": [
-            { "dishname": "Present a bacon dish", "recipegif": ""}            
+            { "dishname": "One-Pot Bacon Mushroom Risotto", "recipegif": "https://gfycat.com/ElementaryYearlyHogget"},
+            { "dishname": "One-Pot Creamy Chicken Bacon Veggie Pasta", "recipegif": "https://gfycat.com/SeveralFabulousIlsamochadegu"}   
             ]
         },
         "followUpNo": "this.questions.level3[2]"
@@ -68,7 +71,7 @@
         "question": "Do you like pasta?",
         "followUpYes": {
           "vegpasta": [
-            { "dishname": "Present a vegetarian pasta dish", "recipegif": ""}
+            { "dishname": "Roasted Vegetable Pasta", "recipegif": "https://thumbs.gfycat.com/SilkyShyBactrian-mobile.mp4"}
             ]
         },
         "followUpNo": "this.questions.level3[3]"
@@ -95,7 +98,7 @@
         },
         "followUpNo": {
           "chicken_soup": [
-            { "dishname": "Present a chicken soup", "recipegif": ""}
+            { "dishname": "Udon Soup with Chicken, Spinach and Mushrooms", "recipegif": "http://i.imgur.com/zZsJWC8.gifv"}
             ]
         }
       },
@@ -109,6 +112,7 @@
         },
         "followUpNo": {
           "steaks": [
+            { "dishname": "Strip Steak with Lemon Yogurt and Radishes", "recipegif": "http://i.imgur.com/JYV6tde.gifv"},
             { "dishname": "Present a steak dish", "recipegif": ""}
             ]
         }
@@ -118,7 +122,8 @@
         "question": "Do you like sausages?",
         "followUpYes": {
           "sausages": [
-            { "dishname": "Present a sausage dish", "recipegif": ""}
+            { "dishname": "Sausage Pizza Muffins", "recipegif": "https://gfycat.com/EasyFortunateEuropeanpolecat"},
+            { "dishname": "Sausage Pizza Muffins", "recipegif": "https://gfycat.com/EasyFortunateEuropeanpolecat"}
             ]
         },
         "followUpNo": {
