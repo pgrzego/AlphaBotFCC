@@ -10,8 +10,8 @@ var bot = new SlackBot({
 });
 
 var params = {
-    icon_emoji: ':lion_face:'
-  };
+  icon_emoji: ':lion_face:'
+};
 
 bot.on('start', function() {
   // bot.postMessageToChannel('testing', 'meow!', params);
