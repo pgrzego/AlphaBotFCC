@@ -47,9 +47,9 @@
       },
       {
         "level": 2,
-        "question": "Do you like Burger?",
+        "question": "Do you like burger?",
         "followUpYes": {
-          "stews": [
+          "burgers": [
             { "dishname": "Creamy Chilli Cheese Burger", "recipegif": "https://gfycat.com/RespectfulImpeccableIndianelephant"},
             { "dishname": "Animal Style Burger", "recipegif": "http://i.imgur.com/H87e9aW.gifv"},
             { "dishname": "Hidden Veggie Burger", "recipegif": "https://gfycat.com/IckyDecimalEuropeanpolecat"}
@@ -95,7 +95,7 @@
       }
     ],
     "level3": [
-      {
+        {
         "level": 3,
         "question": "Do you like chicken soup?",
         "followUpYes": {

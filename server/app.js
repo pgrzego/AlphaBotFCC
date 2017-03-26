@@ -5,8 +5,8 @@ const questions = require('../data/questions.json');
 var SlackBot = require('slackbots');
 
 var bot = new SlackBot({
-  token: process.env.SLACK_TOKEN,
-  name: process.env.SLACK_NAME
+  token: process.env.SLACK_TOKEN || 'xoxb-156540927524-IMimE35LxND4m2Q3zo3C07GA',
+  name: 'alpha'
 });
 
 var params = {
@@ -23,7 +23,7 @@ bot.on('start', function() {
  * @param {object} msg
  */
 const isValidMsg = (type, content) =>
-    type === 'desktop_notification' && /@alphabot/.test(content);
+    type === 'desktop_notification' && /@alpha/.test(content);
 
 // slack shows IM users somewhat differently (subtitle)
 const findUser = (subtitle, content) => {
@@ -31,14 +31,16 @@ const findUser = (subtitle, content) => {
   return maybeUser ? maybeUser[1] : subtitle;
 };
 
-const getRandomQuestion = (questions) => {
-  const question = questions[Math.floor(Math.random()*questions.length)].question;
-  return question;
+const getRandomItem = (itemList) => {
+  const randomItem = itemList[Math.floor(Math.random() * itemList.length)];
+  return randomItem;
 };
 
 /**
  * @param {object} data
  */
+// let category = getRandomQuestion(questions.questions.level1);
+let category = questions.questions.level1[0];
 
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
@@ -54,13 +56,26 @@ bot.on('message', function(data) {
 
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
-    userSentAnswer(user);
-    const progress = getUserData(user);
+    userSentAnswer(user, category.question, 'followUpYes');
+    const userData = getUserData(user);
+    const answer = userData.answer === 'yes' ? 'followUpYes' : 'followUpNo';
+
+    switch (userData.progress) {
+      case 2:
+        category = category[userData.answer];
+        break;
+      case 3:
+        category = category[userData.answer];
+        break;
+      default:
+        category = questions.questions.level1;
+    }
 
     bot.postMessage(
       data.channel,
-      `<@${user}> you have contacted me in the past half a minute. This is ${progress === 1 ? 'one time' : progress + ' times'} in a row so far.
-      ${getRandomQuestion(questions.questions.level1)}`,
+      `<@${user}> you have contacted me in the past half a minute. 
+      ${userData.progress === 1 ? `${category.question}` :
+      `${userData.question}`}`,
       params
     );
   }
