@@ -1,6 +1,6 @@
 'use strict';
 const { userSentAnswer, getUserData } = require('./users/userStorage');
-const questions = require('../data/questions.json');
+const food = require('../data/test.json');
 
 var SlackBot = require('slackbots');
 
@@ -15,7 +15,7 @@ var params = {
 
 bot.on('start', function() {
   // bot.postMessageToChannel('testing', 'meow!', params);
-  console.log(questions.questions);
+  // console.log(food.food[0].category);
 });
 
 /**
@@ -40,13 +40,13 @@ const getRandomItem = (itemList) => {
  * @param {object} data
  */
 // let category = getRandomQuestion(questions.questions.level1);
-let category = questions.questions.level1[0];
+let category = getRandomItem(food.food);
 
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
   console.log(data);
   console.log('*'.repeat(40));
-
+  console.log(category.category);
   /* { type: 'message',
   channel: 'D4D542SQY',
   user: 'U47CB0C85',
@@ -56,26 +56,25 @@ bot.on('message', function(data) {
 
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
-    userSentAnswer(user, category.question, 'followUpYes');
+    userSentAnswer(user, category.q, 'followUpYes');
     const userData = getUserData(user);
-    const answer = userData.answer === 'yes' ? 'followUpYes' : 'followUpNo';
+    // const answer = userData.answer === 'yes' ? 'followUpYes' : 'followUpNo';
 
-    switch (userData.progress) {
-      case 2:
-        category = category[userData.answer];
-        break;
-      case 3:
-        category = category[userData.answer];
-        break;
-      default:
-        category = questions.questions.level1;
-    }
+    // switch (userData.progress) {
+    //   case 2:
+    //     category = category[userData.answer];
+    //     break;
+    //   case 3:
+    //     category = category[userData.answer];
+    //     break;
+    //   default:
+    //     category = questions.questions.level1;
+    // }
 
     bot.postMessage(
       data.channel,
       `<@${user}> you have contacted me in the past half a minute. 
-      ${userData.progress === 1 ? `${category.question}` :
-      `${userData.question}`}`,
+      ${userData.progress === 1 ? `${category.q}` : `ho`}`,
       params
     );
   }
