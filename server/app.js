@@ -6,7 +6,7 @@ var SlackBot = require('slackbots');
 
 var bot = new SlackBot({
   token: process.env.SLACK_TOKEN || 'xoxb-156540927524-IMimE35LxND4m2Q3zo3C07GA',
-  name: 'alpha'
+  name: 'alphabot'
 });
 
 var params = {
@@ -23,7 +23,7 @@ bot.on('start', function() {
  * @param {object} msg
  */
 const isValidMsg = (type, content) =>
-    type === 'desktop_notification' && /@alpha/.test(content);
+    type === 'desktop_notification' && /@alphabot/.test(content);
 
 // slack shows IM users somewhat differently (subtitle)
 const findUser = (subtitle, content) => {
