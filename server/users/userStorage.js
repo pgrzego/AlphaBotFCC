@@ -8,12 +8,13 @@ const newTimeout = (user, duration) => setTimeout(userTimedOut(user), duration);
 const userTimedOut = user => () => userStorage[user] = undefined;
 
 const QAHasChanged = (user, question, answer, userData = { progress: 0 }) => {
-  return ({ 
-  progress: userData.progress + 1, 
-  timeout: newTimeout(user, WAIT_PERIOD),
-  question,
-  answer
-})};
+  return ({
+    progress: userData.progress + 1,
+    timeout: newTimeout(user, WAIT_PERIOD),
+    question,
+    answer
+  });
+};
 
 const userHasProgressed = (user, userData, question, answer) => {
   clearTimeout(userData.timeout);
