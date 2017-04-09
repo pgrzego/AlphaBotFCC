@@ -104,6 +104,7 @@ bot.on('message', function(data) {
     const user = findUser(data.subtitle, data.content);
     const userData = getUserData(user);
     const processedAnswer = handleMsg(data.content, 'q');
+    // need to send in category of food to user storage.
     userSentAnswer(user, processedAnswer);
     console.log(userData.answer);
     
