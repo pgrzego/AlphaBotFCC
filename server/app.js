@@ -37,11 +37,6 @@ const getRandomItem = (itemList) => {
   return randomItem;
 };
 
-const getRandomItem = (itemList) => {
-  const randomItem = itemList[Math.floor(Math.random() * itemList.length)];
-  return randomItem;
-};
-
 const getSpecificFood = (category, progress) => {
   return { 
     meal_category: food.food[category],
