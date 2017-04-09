@@ -7,23 +7,22 @@ const newTimeout = (user, duration) => setTimeout(userTimedOut(user), duration);
 
 const userTimedOut = user => () => userStorage[user] = undefined;
 
-const QAHasChanged = (user, question, answer, userData = { progress: 0 }) => {
+const QAHasChanged = (user, answer, userData = { progress: 0 }) => {
   return ({
     progress: userData.progress + 1,
     timeout: newTimeout(user, WAIT_PERIOD),
-    question,
-    answer
+    answer: 'q'
   });
 };
 
-const userHasProgressed = (user, userData, question, answer) => {
+const userHasProgressed = (user, userData, answer) => {
   clearTimeout(userData.timeout);
-  return QAHasChanged(user, userData, question, answer);
+  return QAHasChanged(user, userData, answer);
 };
 
-exports.userSentAnswer = (user, question, answer) => 
+exports.userSentAnswer = (user, answer) =>
   userStorage[user] = userStorage[user]
-    ? userHasProgressed(user, question, answer, userStorage[user])
-    : QAHasChanged(user, question, answer);
+    ? userHasProgressed(user, answer, userStorage[user])
+    : QAHasChanged(user, answer);
 
 exports.getUserData = user => userStorage[user];

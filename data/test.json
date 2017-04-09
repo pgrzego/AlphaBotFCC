@@ -3,20 +3,20 @@
     {
       "category": "chicken",
       "q": "Do you like chicken?",
-      "yq": "Do you like curry?",
-      "nq": "Case where we ask for other category not chicken, for instance next category.",
-      "yya": [
+      "qy": "Do you like curry?",
+      "qn": "Case where we ask for other category not chicken, for instance next category.",
+      "qyy": [
               { "dishname": "Butter Chicken Curry", "recipegif": "http://i.imgur.com/kDV66RD.gifv"},
               { "dishname": "Awesome Almond Chicken Curry", "recipegif": "https://gfycat.com/JealousTalkativeAcouchi"},
               { "dishname": "Devil's Curry", "recipegif": "http://i.imgur.com/6aVNRB3.gifv"}
               ],
-      "ynq": "Do you like chicken soup?",
-      "ynya": [
+      "qyn": "Do you like chicken soup?",
+      "qyny": [
                 { "dishname": "Udon Soup with Chicken, Spinach and Mushrooms", "recipegif": "http://i.imgur.com/zZsJWC8.gifv"},
                 { "dishname": "Creamy Chicken Lasagna Soup", "recipegif": "http://i.imgur.com/W3rUwOu.gifv"},
                 { "dishname": "Chicken Soup in a Tortilla Bowl", "recipegif": "https://thumbs.gfycat.com/TenderFrighteningJenny-mobile.mp4"}
               ],
-      "ynna": [
+      "qynn": [
                 { "dishname": "General Tso's Chicken", "recipegif": "http://i.imgur.com/sVrmkys.gifv"},
                 { "dishname": "Kung Pao Chicken", "recipegif": "http://i.imgur.com/3kC7fOV.gifv"},
                 { "dishname": "Honey BBQ Chicken Wings", "recipegif": "http://i.imgur.com/1u9RnRp.gifv"}
@@ -25,20 +25,20 @@
     {
       "category": "beef",
       "q": "Do you like beef?",
-      "yq": "Do you like Burger?",
-      "nq": "Case where we ask for other category not beef, for instance next category.",
-      "yya":  [
+      "qy": "Do you like Burger?",
+      "qn": "Case where we ask for other category not beef, for instance next category.",
+      "qyy":  [
                 { "dishname": "Creamy Chilli Cheese Burger", "recipegif": "https://gfycat.com/RespectfulImpeccableIndianelephant"},
                 { "dishname": "Animal Style Burger", "recipegif": "http://i.imgur.com/H87e9aW.gifv"},
                 { "dishname": "Hidden Veggie Burger", "recipegif": "https://gfycat.com/IckyDecimalEuropeanpolecat"}
               ],
-      "ynq": "Do you like slow cooked beef?",
-      "ynya": [
+      "qyn": "Do you like slow cooked beef?",
+      "qyny": [
                 { "dishname": "Slow Cooker Beef and Broccoli", "recipegif": "http://i.imgur.com/W32VWCf.gifv"},
                 { "dishname": "Slow Cooker Beef Stroganoff", "recipegif": "http://imgur.com/IJk0cOe.gifv"},
                 { "dishname": "Slow Cooker Mongolian Beef", "recipegif": "http://i.imgur.com/5o9z6rl.gifv"}
               ],
-      "ynna": [
+      "qynn": [
                 { "dishname": "Strip Steak with Lemon Yogurt and Radishes", "recipegif": "http://i.imgur.com/JYV6tde.gifv"},
                 { "dishname": "Steak and Cheese Stromboli", "recipegif": "http://i.imgur.com/KYsUIUY.gifv"},
                 { "dishname": "Coffee Crusted Skirt Steak", "recipegif": "http://i.imgur.com/gVv4z2L.gifv"}
@@ -47,20 +47,20 @@
     {
       "category": "pork",
       "q": "Do you like pork?",
-      "yq": "Do you like bacon?",
-      "nq": "Case where we ask for other category not pork, for instance next category.",
-      "yya":  [
+      "qy": "Do you like bacon?",
+      "qn": "Case where we ask for other category not pork, for instance next category.",
+      "qyy":  [
                 { "dishname": "One-Pot Bacon Mushroom Risotto", "recipegif": "https://gfycat.com/ElementaryYearlyHogget"},
                 { "dishname": "One-Pot Creamy Chicken Bacon Veggie Pasta", "recipegif": "https://gfycat.com/SeveralFabulousIlsamochadegu"},
                 { "dishname": "Creamy Bacon Chive Hasselback Potatoes", "recipegif": "https://gfycat.com/NewHairyAzurewingedmagpie"}  
               ],
-      "ynq": "Do you like sausages?",
-      "ynya": [
+      "qyn": "Do you like sausages?",
+      "qyny": [
                 { "dishname": "Sausage Pizza Muffins", "recipegif": "https://gfycat.com/EasyFortunateEuropeanpolecat"},
                 { "dishname": "Sausage and Pepper Macaroni", "recipegif": "https://gfycat.com/FoolishRemoteEmperorpenguin"},
                 { "dishname": "Spicy Smoked Sausage Alfredo Bake", "recipegif": "http://i.imgur.com/d810r7O.gifv"}
               ],
-      "ynna": [
+      "qynn": [
                 { "dishname": "Sweet & Sour Pork", "recipegif": "https://gfycat.com/WaterloggedShrillAfricanclawedfrog"},
                 { "dishname": "Chinese-Style Glazed Pork Belly", "recipegif": "https://gfycat.com/PaleSmoothKarakul"},
                 { "dishname": "Pork Ribs", "recipegif": "http://i.imgur.com/UVBRJbX.gifv"}
@@ -69,20 +69,20 @@
     {
       "category": "vegetarian",
       "q": "Do you like vegetarian?",
-      "yq": "Do you like pasta?",
-      "nq": "Case where we ask for other category not pork, for instance next category.",
-      "yya":  [
+      "qy": "Do you like pasta?",
+      "qn": "Case where we ask for other category not pork, for instance next category.",
+      "qyy":  [
                 { "dishname": "Roasted Vegetable Pasta", "recipegif": "https://thumbs.gfycat.com/SilkyShyBactrian-mobile.mp4"},
                 { "dishname": "Pasta Avocado Alfredo", "recipegif": "https://fat.gfycat.com/BeautifulImaginaryDamselfly.webm"},
                 { "dishname": "Roasted Tomato and Basil Pasta", "recipegif": "https://gfycat.com/CircularExemplaryAsiandamselfly"}
               ],
-      "ynq": "Do you like tofu?",
-      "ynya": [
+      "qyn": "Do you like tofu?",
+      "qyny": [
                 { "dishname": "Tofu with Peanut Sauce", "recipegif": "https://gfycat.com/DefensiveWarpedKittiwake"},
                 { "dishname": "Tofu Stir Fry", "recipegif": "https://gfycat.com/ImmaculatePiercingCoot"},
                 { "dishname": "Crispy Hoisin Tofu Pancakes", "recipegif": "http://i.imgur.com/ZPlEobd.gifv"}
               ],
-      "ynna": [
+      "qynn": [
                 { "dishname": "Veggie Spinal Tart", "recipegif": "https://gfycat.com/HoarseGrandFirebelliedtoad"},
                 { "dishname": "Rainbow Sushi", "recipegif": "https://gfycat.com/PlumpOrdinaryBlackandtancoonhound"},
                 { "dishname": "Thai Salad", "recipegif": "https://gfycat.com/NewMilkyKakapo"}
@@ -91,20 +91,20 @@
     {
       "category": "fish",
       "q": "Do you like fish?",
-      "yq": "Do you like salmon?",
-      "nq": "Case where we ask for other category not pork, for instance next category.",
-      "yya":  [
+      "qy": "Do you like salmon?",
+      "qn": "Case where we ask for other category not pork, for instance next category.",
+      "qyy":  [
                 { "dishname": "Salmon and Rice with Miso", "recipegif": "https://gfycat.com/NarrowMadGodwit"},
                 { "dishname": "One-Pot Salmon Chowder", "recipegif": "http://i.imgur.com/DYkny5S.gifv"},
                 { "dishname": "Grilled Salmon with Avocado Salsa", "recipegif": "http://i.imgur.com/lzLbLKC.gifv"}
               ],
-      "ynq": "Do you like tuna?",
-      "ynya": [
+      "qyn": "Do you like tuna?",
+      "qyny": [
                 { "dishname": "Healthy Tuna stuffed Zucchini Boats", "recipegif": "https://gfycat.com/SecondAdolescentAlaskanhusky"},
                 { "dishname": "Sriracha Tuna Melt", "recipegif": "http://i.imgur.com/yYFedBt.gif"},
                 { "dishname": "Tunabombs", "recipegif": "https://gfycat.com/IllegalNeglectedAmbushbug"}
               ],
-      "ynna": [
+      "qynn": [
                 { "dishname": "Healthy Fish Tacos", "recipegif": "https://gfycat.com/HardtofindVariableAquaticleech"},
                 { "dishname": "Pan-Fried Fish with Lemon Caper Sauce", "recipegif": "http://i.imgur.com/R7j0O3p.gifv"},
                 { "dishname": "Salt and Vinegar Chip Battered Fish", "recipegif": "http://i.imgur.com/Js10k3m.gif"}

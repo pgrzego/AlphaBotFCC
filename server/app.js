@@ -1,5 +1,6 @@
 'use strict';
 const { userSentAnswer, getUserData } = require('./users/userStorage');
+const { handleMsg } = require('./messages/messageHandler');
 const food = require('../data/test.json');
 
 var SlackBot = require('slackbots');
@@ -38,48 +39,48 @@ const getRandomItem = (itemList) => {
 
 // let userProg = [];
 
-function isYes (message) {
-  if (message === 'yes') {
-    return true;
-  }
-  return false;
-}
+// function isYes (message) {
+//   if (message === 'yes') {
+//     return true;
+//   }
+//   return false;
+// }
 
-function isNo (message) {
-  if (message === 'no') {
-    return true;
-  }
-  return false;
-}
+// function isNo (message) {
+//   if (message === 'no') {
+//     return true;
+//   }
+//   return false;
+// }
 
-function processMsgString (message) {
-  let newMsg = message.toLowerCase().split(' ');
-  return newMsg.splice(2);
-}
+// function processMsgString (message) {
+//   let newMsg = message.toLowerCase().split(' ');
+//   return newMsg.splice(2);
+// }
 
-function handleMsg (message, userProgress) {
-  const processedMsg = processMsgString(message);
-  console.log('processedMsg ', processedMsg);
-  if (userProgress < 2) {
-    console.log('levelOneQuestion');
-  } else {
-    console.log('next step in conversation');
-    // this is not returning what it should. will have to check.
-    const returnMessage = (processedMsg) => {
-      if (isYes(processedMsg)) {
-        return 'y';
-      } else if (isNo(processedMsg)) {
-        return 'n';
-      } else {
-        return 'Not valid message';
-      }
-    };
-    console.log('returnMessage ', returnMessage);
-    // if (returnMessage !== 'Not valid message') {
-    //   userProg.push(returnMessage);
-    // }
-  }
-}
+// function handleMsg (message, userProgress) {
+//   const processedMsg = processMsgString(message);
+//   console.log('processedMsg ', processedMsg);
+//   if (userProgress < 2) {
+//     console.log('levelOneQuestion');
+//   } else {
+//     console.log('next step in conversation');
+//     // this is not returning what it should. will have to check.
+//     const returnMessage = (processedMsg) => {
+//       if (isYes(processedMsg)) {
+//         return 'y';
+//       } else if (isNo(processedMsg)) {
+//         return 'n';
+//       } else {
+//         return 'Not valid message';
+//       }
+//     };
+//     console.log('returnMessage ', returnMessage);
+//     // if (returnMessage !== 'Not valid message') {
+//     //   userProg.push(returnMessage);
+//     // }
+//   }
+// }
 /**
  * @param {object} data
  */
@@ -89,8 +90,9 @@ let category = getRandomItem(food.food);
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
   console.log(data.content);
-  console.log('*'.repeat(40));
   console.log(category.category);
+  console.log('*'.repeat(40));
+  
   /* { type: 'message',
   channel: 'D4D542SQY',
   user: 'U47CB0C85',
@@ -100,10 +102,11 @@ bot.on('message', function(data) {
 
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
-    userSentAnswer(user, category.q, 'followUpYes');
     const userData = getUserData(user);
-    // console.log(userData.progress);
-    handleMsg(data.content, userData.progress);
+    const processedAnswer = handleMsg(data.content, 'q');
+    userSentAnswer(user, processedAnswer);
+    console.log(userData.answer);
+    
     // const answer = userData.answer === 'yes' ? 'followUpYes' : 'followUpNo';
 
     // switch (userData.progress) {
@@ -119,8 +122,7 @@ bot.on('message', function(data) {
 
     bot.postMessage(
       data.channel,
-      `<@${user}> you have contacted me in the past half a minute. 
-      ${userData.progress === 1 ? `${category.q}` : `ho`}`,
+      `<@${user}> you have contacted me in the past half a minute.`,
       params
     );
   }
