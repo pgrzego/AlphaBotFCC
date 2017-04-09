@@ -37,6 +37,18 @@ const getRandomItem = (itemList) => {
   return randomItem;
 };
 
+const getRandomItem = (itemList) => {
+  const randomItem = itemList[Math.floor(Math.random() * itemList.length)];
+  return randomItem;
+};
+
+const getSpecificFood = (category, progress) => {
+  return { 
+    meal_category: food.food[category],
+    progress: getRandomItem(food.food[category][progress])
+  }
+};
+
 // let userProg = [];
 
 // function isYes (message) {
@@ -85,12 +97,12 @@ const getRandomItem = (itemList) => {
  * @param {object} data
  */
 // let category = getRandomQuestion(questions.questions.level1);
-let category = getRandomItem(food.food);
+const foodCategory = getRandomItem(food.food);
 
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
   console.log(data.content);
-  console.log(category.category);
+  console.log(foodCategory.category);
   console.log('*'.repeat(40));
   
   /* { type: 'message',
