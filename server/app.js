@@ -38,56 +38,12 @@ const getRandomItem = (itemList) => {
 };
 
 const getSpecificFood = (category, progress) => {
-  return { 
+  return {
     meal_category: food.food[category],
     progress: getRandomItem(food.food[category][progress])
-  }
+  };
 };
 
-// let userProg = [];
-
-// function isYes (message) {
-//   if (message === 'yes') {
-//     return true;
-//   }
-//   return false;
-// }
-
-// function isNo (message) {
-//   if (message === 'no') {
-//     return true;
-//   }
-//   return false;
-// }
-
-// function processMsgString (message) {
-//   let newMsg = message.toLowerCase().split(' ');
-//   return newMsg.splice(2);
-// }
-
-// function handleMsg (message, userProgress) {
-//   const processedMsg = processMsgString(message);
-//   console.log('processedMsg ', processedMsg);
-//   if (userProgress < 2) {
-//     console.log('levelOneQuestion');
-//   } else {
-//     console.log('next step in conversation');
-//     // this is not returning what it should. will have to check.
-//     const returnMessage = (processedMsg) => {
-//       if (isYes(processedMsg)) {
-//         return 'y';
-//       } else if (isNo(processedMsg)) {
-//         return 'n';
-//       } else {
-//         return 'Not valid message';
-//       }
-//     };
-//     console.log('returnMessage ', returnMessage);
-//     // if (returnMessage !== 'Not valid message') {
-//     //   userProg.push(returnMessage);
-//     // }
-//   }
-// }
 /**
  * @param {object} data
  */
@@ -96,10 +52,9 @@ const foodCategory = getRandomItem(food.food);
 
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
-  console.log(data.content);
+  // console.log(data.content);
   console.log(foodCategory.category);
   console.log('*'.repeat(40));
-  
   /* { type: 'message',
   channel: 'D4D542SQY',
   user: 'U47CB0C85',
@@ -110,27 +65,29 @@ bot.on('message', function(data) {
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
     const userData = getUserData(user);
-    const processedAnswer = handleMsg(data.content, 'q');
+    console.log('userData inside botmessage', userData);
+    const processedAnswer = handleMsg(data.content);
     // need to send in category of food to user storage.
-    userSentAnswer(user, processedAnswer);
-    console.log(userData.answer);
-    
-    // const answer = userData.answer === 'yes' ? 'followUpYes' : 'followUpNo';
+    console.log('processedAnswer', processedAnswer);
+    // Need to put in a check that processedAnswer is either 'y' or 'n' otherwise it needs to ask for yes or no answer.
+    let message = '';
 
-    // switch (userData.progress) {
-    //   case 2:
-    //     category = category[userData.answer];
-    //     break;
-    //   case 3:
-    //     category = category[userData.answer];
-    //     break;
-    //   default:
-    //     category = questions.questions.level1;
-    // }
+    if (userData.progress > 1) {
+      message = foodCategory;
+      console.log(message);
+    } else {
+      if (processedAnswer === 'y' || processedAnswer === 'n') {
+        userSentAnswer(user, processedAnswer);
+      } else {
+        message = `${processedAnswer}, please answer with yes or no.`;
+      }
+    }
+    console.log('userData after user sent answer', userData);
+    console.log(userData.answer);
 
     bot.postMessage(
       data.channel,
-      `<@${user}> you have contacted me in the past half a minute.`,
+      `<@${user}> ${message}`,
       params
     );
   }

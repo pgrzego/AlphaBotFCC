@@ -14,11 +14,14 @@ const answer = (message) => {
   }
 };
 
-exports.handleMsg = (fullMessage, string) => {
+exports.handleMsg = (fullMessage) => {
+  console.log('fullMessage', fullMessage);
   const trimedMessageArray = trimMsg(fullMessage.toLowerCase().split(' '));
+  console.log('trimedMessageArray', trimedMessageArray);
   const nextInArray = answer(trimedMessageArray);
+  console.log('nextInArray', nextInArray);
   if (nextInArray) {
-    return [...string, ...nextInArray].join('');
+    return nextInArray;
   } else {
     return 'Invalid message';
   }
