@@ -1,5 +1,5 @@
 'use strict';
-const { userSentAnswer, getUserData } = require('./users/userStorage');
+const { userSentAnswer, getUserData, resetUser } = require('./users/userStorage');
 const { handleMsg } = require('./messages/messageHandler');
 const food = require('../data/test.json');
 
@@ -38,22 +38,19 @@ const getRandomItem = (itemList) => {
 };
 
 const getSpecificFood = (category, progress) => {
-  return {
-    meal_category: food.food[category],
-    progress: getRandomItem(food.food[category][progress])
-  };
+  console.log('From getSpecificFood progress', progress);
+  console.log('From getSpecificFood category', category);
+  return getRandomItem(category[progress]);
 };
 
+const foodCategoryNumber = getRandomItem(food.food);
 /**
  * @param {object} data
  */
 // let category = getRandomQuestion(questions.questions.level1);
-const foodCategory = getRandomItem(food.food);
-
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
-  // console.log(data.content);
-  console.log(foodCategory.category);
+  // console.log(foodCategoryNumber);
   console.log('*'.repeat(40));
   /* { type: 'message',
   channel: 'D4D542SQY',
@@ -65,26 +62,31 @@ bot.on('message', function(data) {
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
     const userData = getUserData(user);
-    console.log('userData inside botmessage', userData);
     const processedAnswer = handleMsg(data.content);
+    const userStuff = userSentAnswer(user, processedAnswer);
     // need to send in category of food to user storage.
     console.log('processedAnswer', processedAnswer);
-    // Need to put in a check that processedAnswer is either 'y' or 'n' otherwise it needs to ask for yes or no answer.
     let message = '';
 
-    if (userData.progress > 1) {
-      message = foodCategory;
-      console.log(message);
+    if (userData === void 0) {
+      console.log('userSentAnswer is \n');
+      message = foodCategoryNumber[userStuff.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
-        userSentAnswer(user, processedAnswer);
+        console.log('userSentAnswer is in yes or no\n');
+        console.log('Userstuff answer', userStuff.answer);
+        console.log('Userstuff constructor', foodCategoryNumber[userStuff.answer]);
+        if (foodCategoryNumber[userStuff.answer].constructor === Array) {
+          message = `<${getSpecificFood(foodCategoryNumber, userStuff.answer).recipegif}|${getSpecificFood(foodCategoryNumber, userStuff.answer).dishname}>`;
+          resetUser(user);
+
+        } else {
+          message = foodCategoryNumber[userStuff.answer];
+        }
       } else {
         message = `${processedAnswer}, please answer with yes or no.`;
       }
     }
-    console.log('userData after user sent answer', userData);
-    console.log(userData.answer);
-
     bot.postMessage(
       data.channel,
       `<@${user}> ${message}`,

@@ -23,7 +23,7 @@ exports.handleMsg = (fullMessage) => {
   if (nextInArray) {
     return nextInArray;
   } else {
-    return 'Invalid message';
+    return '';
   }
 };
 
