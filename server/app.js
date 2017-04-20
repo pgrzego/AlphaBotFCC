@@ -1,13 +1,13 @@
 'use strict';
-const { userSentAnswer, getUserData, resetUser } = require('./users/userStorage');
+const { userSentAnswer, getUserData, resetUser, initializeUser } = require('./users/userStorage');
 const { handleMsg } = require('./messages/messageHandler');
 const food = require('../data/test.json');
 
 var SlackBot = require('slackbots');
 
 var bot = new SlackBot({
-  token: process.env.SLACK_TOKEN || 'xoxb-156540927524-IMimE35LxND4m2Q3zo3C07GA',
-  name: 'alphabot'
+  token: process.env.SLACK_TOKEN,
+  name: process.env.SLACK_NAME
 });
 
 var params = {
@@ -43,7 +43,6 @@ const getSpecificFood = (category, progress) => {
   return getRandomItem(category[progress]);
 };
 
-const foodCategoryNumber = getRandomItem(food.food);
 /**
  * @param {object} data
  */
@@ -61,27 +60,25 @@ bot.on('message', function(data) {
 
   if (isValidMsg(data.type, data.content)) {
     const user = findUser(data.subtitle, data.content);
-    const userData = getUserData(user);
     const processedAnswer = handleMsg(data.content);
-    const userStuff = userSentAnswer(user, processedAnswer);
-    // need to send in category of food to user storage.
     console.log('processedAnswer', processedAnswer);
+    const userData = getUserData(user) ? userSentAnswer(user, processedAnswer) : initializeUser(user, getRandomItem(food.food));
+    console.log('User data:', userData);
     let message = '';
 
-    if (userData === void 0) {
-      console.log('userSentAnswer is \n');
-      message = foodCategoryNumber[userStuff.answer];
+    if (userData.progress === 0) {
+      message = userData.foodCategory[userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
         console.log('userSentAnswer is in yes or no\n');
-        console.log('Userstuff answer', userStuff.answer);
-        console.log('Userstuff constructor', foodCategoryNumber[userStuff.answer]);
-        if (foodCategoryNumber[userStuff.answer].constructor === Array) {
-          message = `<${getSpecificFood(foodCategoryNumber, userStuff.answer).recipegif}|${getSpecificFood(foodCategoryNumber, userStuff.answer).dishname}>`;
+        console.log('Userstuff answer', userData.answer);
+        console.log('Userstuff constructor', userData.foodCategory[userData.answer]);
+        if (userData.foodCategory[userData.answer].constructor === Array) {
+          message = `<${getSpecificFood(userData.foodCategory, userData.answer).recipegif}|${getSpecificFood(userData.foodCategory, userData.answer).dishname}>`;
           resetUser(user);
 
         } else {
-          message = foodCategoryNumber[userStuff.answer];
+          message = userData.foodCategory[userData.answer];
         }
       } else {
         message = `${processedAnswer}, please answer with yes or no.`;

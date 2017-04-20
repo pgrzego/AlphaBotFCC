@@ -7,25 +7,35 @@ const newTimeout = (user, duration) => setTimeout(userTimedOut(user), duration);
 
 const userTimedOut = user => () => userStorage[user] = undefined;
 
-const QAHasChanged = (user, answer, userData = { progress: 0, answer: 'q' }) => {
+const changeUserState = (user, answer, userData) => {
   return ({
     progress: userData.progress + 1,
     timeout: newTimeout(user, WAIT_PERIOD),
-    answer: userData.answer + answer
+    answer: userData.answer + answer,
+    foodCategory: userData.foodCategory
   });
 };
 
-const userHasProgressed = (user, userData, answer) => {
+const userHasProgressed = (user, answer, userData) => {
   clearTimeout(userData.timeout);
-  return QAHasChanged(user, answer, userData);
+  return changeUserState(user, answer, userData);
 };
 
 exports.userSentAnswer = (user, answer) => {
-  return userStorage[user] = userStorage[user] ? userHasProgressed(user, userStorage[user], answer)
-    : QAHasChanged(user, answer);
+  return userStorage[user] = userHasProgressed(user, answer, userStorage[user]);
 }
+
 exports.getUserData = user => {
   return userStorage[user];
+}
+
+exports.initializeUser = (user, foodCategory) => {
+  return userStorage[user] = {
+    progress: 1,
+    timeout: newTimeout(user, WAIT_PERIOD),
+    answer: 'q',
+    foodCategory: foodCategory
+  };
 }
 
 exports.resetUser = user => {

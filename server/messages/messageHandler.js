@@ -9,6 +9,8 @@ const answer = (message) => {
     return 'y';
   } else if (message.includes('no')) {
     return 'n';
+  } else if (message.includes('restart')) {
+    return 'r';
   } else {
     return false;
   }
