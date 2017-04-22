@@ -66,7 +66,9 @@ bot.on('message', function(data) {
     console.log('User data:', userData);
     let message = '';
 
-    if (userData.progress === 0) {
+    console.log('Progress: ', userData.progress);
+    if (userData.progress === 1) {
+      console.log('User has just started. His food category is '+userData.foodCategory.category);
       message = userData.foodCategory[userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
