@@ -1,7 +1,7 @@
 'use strict';
 const { userSentAnswer, getUserData, resetUser, initializeUser } = require('./users/userStorage');
 const { handleMsg } = require('./messages/messageHandler');
-const food = require('../data/test.json');
+const food = require('../data/questions.json');
 
 var SlackBot = require('slackbots');
 
@@ -66,9 +66,7 @@ bot.on('message', function(data) {
     console.log('User data:', userData);
     let message = '';
 
-    console.log('Progress: ', userData.progress);
     if (userData.progress === 1) {
-      console.log('User has just started. His food category is '+userData.foodCategory.category);
       message = userData.foodCategory[userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
