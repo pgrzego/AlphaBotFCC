@@ -1,6 +1,6 @@
 'use strict';
 
-const WAIT_PERIOD = 10000;
+const WAIT_PERIOD = process.env.WAIT_PERIOD;
 let userStorage = {};
 
 const newTimeout = (user, duration) => setTimeout(userTimedOut(user), duration);
