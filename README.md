@@ -8,13 +8,19 @@ The bot can handle different questionaires. The example file (`questions.json`) 
 
 # Installation guide
 
-...
+1. Generate new configuration in your Slack channel here, by visiting [your channel's configuration panel](https://my.slack.com/services/new/bot).
+2. Clone this repository
+3. Create a `.env` file based on the `.env-sample` file
+4. Navigate to the home directory of the cloned repository and run a `npm install` command
+5. Run `npm start`
 
 # Technical description
 
 ## Questions data model
 
-The data model is in a JSON format and it is an array of objects. Each object inside this array represents a questionnaire. The graph of questions is represented with fields in the questionnaire object. The starting question is found in 'q' property. Then, the question which should be asked when user answers "yes" is stored in 'qy' field while the one for "no" answer is in 'qn' field. For each step further the field is appended with 'y' for "yes" and 'n' for "no". 
+The data model is in a JSON format and it is an array of objects. Each object inside this array represents a questionnaire. The graph of questions is represented with fields in the questionnaire object. The starting question is found in 'q' property. Then, the question which should be asked when user answers "yes" is stored in 'qy' field while the one for "no" answer is in 'qn' field. For each step further the field is appended with 'y' for "yes" and 'n' for "no". Once the bot reaches an array of objects instead of an object, it presents a random element of this array as a final answer. 
+
+If user will reply 'no' to the first question from a category then the bot will choose another category (in progress).
 
 # To Do
 
