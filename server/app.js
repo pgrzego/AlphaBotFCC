@@ -21,7 +21,6 @@ var params = {
 
 bot.on('start', function() {
   // bot.postMessageToChannel('testing', 'meow!', params);
-  // console.log(food.food[0].category);
 });
 
 /**
@@ -31,16 +30,11 @@ bot.on('start', function() {
 const isValidMsg = (type, content) =>
   type === 'desktop_notification' && /@alphabot/.test(content);
 
-// slack shows IM users somewhat differently (subtitle)
 const findUser = (subtitle, content) => {
   const maybeUser = content.match(/(^.*?): /);
   return maybeUser ? maybeUser[1] : subtitle;
 };
 
-const getRandomItem = itemList => {
-  const randomItem = itemList[Math.floor(Math.random() * itemList.length)];
-  return randomItem;
-};
 const getRandomNum = itemList => {
   const randomItem = Math.floor(Math.random() * itemList.length);
   return randomItem;
@@ -57,7 +51,6 @@ const getSpecificFood = (category, progress) => {
 /**
  * @param {object} data
  */
-// let category = getRandomQuestion(questions.questions.level1);
 bot.on('message', function(data) {
   // all ingoing events https://api.slack.com/rtm
   console.log('*'.repeat(40));
@@ -71,20 +64,23 @@ bot.on('message', function(data) {
     console.log('UserData', userData);
     let message = '';
     if (userData.progress === 1) {
-      // message = userData.foodCategory[userData.answer];
       message = food.food[userData.foodCategory][userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
         console.log('userSentAnswer is in yes or no\n');
         console.log('Userstuff answer', userData.answer);
         if (userData.answer === 'qn') {
+          // Clear the user and reset the user.
           resetUser(user);
+          // Get the next category
           const nextCategory = getNextNum(userData.foodCategory, food.food);
           console.log(nextCategory);
+          // Initialize the user again but with the new category
           initializeUser(user, nextCategory);
-          // console.log(`Userdata from here`, initializeUser(user, nextCategory));
+          // Hard set the users answer string to 'q'
           userData.answer = 'q';
           console.log(`From inside 'qn'`, userData.answer);
+          // set the message to ask about the new category
           message = food.food[userData.foodCategory][userData.answer];
           console.log('We have now reached end of "qn" if.');
         } else if (food.food[userData.foodCategory][userData.answer].constructor === Array) {
