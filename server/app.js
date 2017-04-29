@@ -61,28 +61,22 @@ bot.on('message', function(data) {
     const userData = getUserData(user)
       ? userSentAnswer(user, processedAnswer)
       : initializeUser(user, foodCategoryNumber);
-    console.log('UserData', userData);
     let message = '';
     if (userData.progress === 1) {
       message = food.food[userData.foodCategory][userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
-        console.log('userSentAnswer is in yes or no\n');
-        console.log('Userstuff answer', userData.answer);
         if (userData.answer === 'qn') {
           // Clear the user and reset the user.
           resetUser(user);
           // Get the next category
           const nextCategory = getNextNum(userData.foodCategory, food.food);
-          console.log(nextCategory);
           // Initialize the user again but with the new category
           initializeUser(user, nextCategory);
           // Hard set the users answer string to 'q'
           userData.answer = 'q';
-          console.log(`From inside 'qn'`, userData.answer);
           // set the message to ask about the new category
           message = food.food[userData.foodCategory][userData.answer];
-          console.log('We have now reached end of "qn" if.');
         } else if (food.food[userData.foodCategory][userData.answer].constructor === Array) {
           const recipe = getRecipe(food.food[userData.foodCategory], userData.answer);
           message = `<${recipe.recipegif}|${recipe.dishname}>`;

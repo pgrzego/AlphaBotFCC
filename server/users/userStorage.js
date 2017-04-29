@@ -45,6 +45,4 @@ exports.initializeUser = (user, foodCategory) => {
 
 exports.resetUser = user => {
   userStorage[user] = undefined;
-  console.log('user from resetUser', user);
-  console.log('Userstorage from resetUser', userStorage[user]);
 };
