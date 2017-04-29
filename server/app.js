@@ -44,8 +44,8 @@ const getNextNum = (num, itemList) => {
   return (num === itemList.length - 1) ? 0 : num + 1;
 }
 
-const getSpecificFood = (category, progress) => {
-  return getRandomItem(category[progress]);
+const getRecipe = (category, progress) => {
+  return category[progress][getRandomNum(category[progress])];
 };
 
 /**
@@ -84,7 +84,8 @@ bot.on('message', function(data) {
           message = food.food[userData.foodCategory][userData.answer];
           console.log('We have now reached end of "qn" if.');
         } else if (food.food[userData.foodCategory][userData.answer].constructor === Array) {
-          message = `<${getSpecificFood(food.food[userData.foodCategory], userData.answer).recipegif}|${getSpecificFood(food.food[userData.foodCategory], userData.answer).dishname}>`;
+          const recipe = getRecipe(food.food[userData.foodCategory], userData.answer);
+          message = `<${recipe.recipegif}|${recipe.dishname}>`;
           resetUser(user);
         } else {
           message = food.food[userData.foodCategory][userData.answer];
