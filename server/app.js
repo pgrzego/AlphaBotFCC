@@ -62,19 +62,16 @@ bot.on('message', function(data) {
       ? userSentAnswer(user, processedAnswer)
       : initializeUser(user, foodCategoryNumber);
     let message = '';
-    if (userData.progress === 1) {
+    if (userData.answer === 'q') {
+      console.log(userData.answer);
       message = food.food[userData.foodCategory][userData.answer];
     } else {
       if (processedAnswer === 'y' || processedAnswer === 'n') {
         if (userData.answer === 'qn') {
-          // Clear the user and reset the user.
-          resetUser(user);
           // Get the next category
           const nextCategory = getNextNum(userData.foodCategory, food.food);
-          // Initialize the user again but with the new category
-          initializeUser(user, nextCategory);
-          // Hard set the users answer string to 'q'
           userData.answer = 'q';
+          userData.foodCategory = nextCategory;
           // set the message to ask about the new category
           message = food.food[userData.foodCategory][userData.answer];
         } else if (food.food[userData.foodCategory][userData.answer].constructor === Array) {
